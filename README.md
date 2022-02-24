@@ -6,3 +6,4 @@ Members:
 
 - Gregory Kersey
 - David Lara
+- Juan Carmona
