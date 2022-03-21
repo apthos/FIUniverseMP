@@ -10,6 +10,9 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     void Start()
     {
         ConnectToServer();
+
+        PlayerPrefs.SetInt("material", 2);
+        PlayerPrefs.Save();
     }
 
     void ConnectToServer()

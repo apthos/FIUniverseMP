@@ -11,6 +11,7 @@ public class NetworkPlayer : MonoBehaviour
     public Transform head;
     public Transform leftHand;
     public Transform rightHand;
+    public Material[] materials;
 
     private PhotonView photonView;
     private Transform headRig;
@@ -29,6 +30,7 @@ public class NetworkPlayer : MonoBehaviour
 
         if (photonView.IsMine)
         {
+            ChangeColor(PlayerPrefs.GetInt("material", 0));
             foreach (var item in GetComponentsInChildren<Renderer>())
             {
                 item.enabled = false;
@@ -51,5 +53,16 @@ public class NetworkPlayer : MonoBehaviour
     {
         target.position = rigTransform.position;
         target.rotation = rigTransform.rotation;
+    }
+
+    [PunRPC]
+    public void ChangeColor(int color)
+    {
+        foreach (var item in GetComponentsInChildren<Renderer>())
+        {
+            item.material = materials[color];
+        }
+
+        if (photonView.IsMine) photonView.RPC("ChangeColor", RpcTarget.OthersBuffered, color);
     }
 }

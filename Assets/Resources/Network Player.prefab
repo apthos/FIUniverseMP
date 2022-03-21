@@ -75,6 +75,10 @@ MonoBehaviour:
   head: {fileID: 6607804578568489635}
   leftHand: {fileID: 9158867927282727135}
   rightHand: {fileID: 7922366883909436863}
+  materials:
+  - {fileID: 2100000, guid: e8a346670dd2b71439f6dde9be67beda, type: 2}
+  - {fileID: 2100000, guid: da0ba97b3f1515845a9340ff4f2a38ed, type: 2}
+  - {fileID: 2100000, guid: e4e6fb5c8ec86e9458a3dfdbaf49e42f, type: 2}
 --- !u!1 &2316782471817714571
 GameObject:
   m_ObjectHideFlags: 0
