@@ -29,6 +29,10 @@ public class CustomizationMenu : MonoBehaviour
     public int hairStyleSelection;
     public int hairColorSelection;
 
+    // Private variables
+    private const int NUM_OF_HAIR_COLORS = 5;
+    private const int NUM_OF_HAIR_STYLES = 17;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,18 +59,20 @@ public class CustomizationMenu : MonoBehaviour
     public void UpdateSkinTone()
     {
         head.GetComponent<Renderer>().material = skinTones[skinToneSelection];
+        // Hands will change color too
     }
 
     // Updates face & eyebrow color
     public void UpdateFace()
     {
+        Destroy(face);
         if (headSelection == 0)
         {
-
+            face = Instantiate(facesMale[faceSelection * NUM_OF_HAIR_COLORS + hairColorSelection], avatar.transform);
         }
         else
         {
-
+            face = Instantiate(facesFemale[faceSelection * NUM_OF_HAIR_COLORS + hairColorSelection], avatar.transform);
         }
     }
 
