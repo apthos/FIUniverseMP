@@ -11,7 +11,6 @@ public class CustomizationMenu : MonoBehaviour
     public GameObject head;
     public GameObject face;
     public GameObject hairStyle;
-    public GameObject hairColor;
 
     // GameObjects and Materials for customization
     public GameObject[] heads;
@@ -31,7 +30,7 @@ public class CustomizationMenu : MonoBehaviour
 
     // Private variables
     private const int NUM_OF_HAIR_COLORS = 5;
-    private const int NUM_OF_HAIR_STYLES = 17;
+    private const int NUM_OF_FACES = 17;
 
     // Start is called before the first frame update
     void Start()
@@ -79,14 +78,16 @@ public class CustomizationMenu : MonoBehaviour
     // Updates hair style & color
     public void UpdateHair()
     {
+        Destroy(hairStyle);
         if (headSelection == 0)
         {
-
+            hairStyle = Instantiate(hairStylesMale[hairStyleSelection], avatar.transform);
         }
         else
         {
-
+            hairStyle = Instantiate(hairStylesFemale[hairStyleSelection], avatar.transform);
         }
+        hairStyle.GetComponent<Renderer>().material = hairColors[hairColorSelection];
     }
 
     public void UpdateAvatar()
@@ -103,10 +104,10 @@ public class CustomizationMenu : MonoBehaviour
     public void LoadPreferences()
     {
         headSelection = PlayerPrefs.GetInt(AvatarTypes.HEAD, 0);
-        skinToneSelection = PlayerPrefs.GetInt(AvatarTypes.SKIN, 0);
-        faceSelection = PlayerPrefs.GetInt(AvatarTypes.FACE, 0);
-        hairStyleSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR, 0);
-        hairColorSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR_COLOR, 0);
+        skinToneSelection = PlayerPrefs.GetInt(AvatarTypes.SKIN, 1);
+        faceSelection = PlayerPrefs.GetInt(AvatarTypes.FACE, 6);
+        hairStyleSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR, 8);
+        hairColorSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR_COLOR, 2);
     }
 
     // Method in case customization will be saved onto a database per account
