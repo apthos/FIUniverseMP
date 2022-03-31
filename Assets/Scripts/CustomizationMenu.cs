@@ -22,15 +22,28 @@ public class CustomizationMenu : MonoBehaviour
     public Material[] hairColors;
 
     // Player Input
-    public int headSelection;
-    public int skinToneSelection;
-    public int faceSelection;
-    public int hairStyleSelection;
-    public int hairColorSelection;
+    int headSelection;
+    int skinToneSelection;
+    int faceSelection;
+    int hairStyleSelection;
+    int hairColorSelection;
+    Selections selectedCharacteristic;
 
     // Private variables
     private const int NUM_OF_HAIR_COLORS = 5;
     private const int NUM_OF_FACES = 17;
+    private const int NUM_OF_HEADS = 2;
+    private const int NUM_OF_SKIN_TONES = 2;
+    private const int NUM_OF_HAIR_STYLES = 16;
+    public enum Selections
+    {
+        HEAD,
+        SKIN,
+        FACE,
+        HAIR,
+        HAIR_COLOR
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +58,11 @@ public class CustomizationMenu : MonoBehaviour
         
     }
     
+
+    /************************************************************
+                   AVATAR GAME OBJECT CUSTOMIZATION
+     ************************************************************/
+
     // Updates head shape. Also, face & hair style change since they are each fitted to a specific head shape
     public void UpdateHead()
     {
@@ -90,29 +108,70 @@ public class CustomizationMenu : MonoBehaviour
         hairStyle.GetComponent<Renderer>().material = hairColors[hairColorSelection];
     }
 
+    // Updates the avatar displayed in the customization menu
     public void UpdateAvatar()
     {
         UpdateHead();
         UpdateSkinTone();
     }
 
+
+    /************************************************************
+                            PLAYER PREFERENCES
+    ************************************************************/
+
+    // Updates the player preference for a specified avatar characteristic 
     public void ChangePreference(string characteristic, int value)
     {
         PlayerPrefs.SetInt(characteristic, value);
     }
 
+    // Loads the player preferences for the avatar
     public void LoadPreferences()
     {
         headSelection = PlayerPrefs.GetInt(AvatarTypes.HEAD, 0);
-        skinToneSelection = PlayerPrefs.GetInt(AvatarTypes.SKIN, 1);
-        faceSelection = PlayerPrefs.GetInt(AvatarTypes.FACE, 6);
-        hairStyleSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR, 8);
-        hairColorSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR_COLOR, 2);
+        skinToneSelection = PlayerPrefs.GetInt(AvatarTypes.SKIN, 0);
+        faceSelection = PlayerPrefs.GetInt(AvatarTypes.FACE, 0);
+        hairStyleSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR, 0);
+        hairColorSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR_COLOR, 0);
     }
 
     // Method in case customization will be saved onto a database per account
     public void SavePreferences()
     {
         PlayerPrefs.Save();
+    }
+
+
+    /************************************************************
+                                USER INPUT
+    ************************************************************/
+    public void ChangeSelectedCharacteristic(int characteristic)
+    {
+        selectedCharacteristic = (Selections) characteristic;
+    }
+
+    public void ShiftSelection(int value)
+    {
+        switch(selectedCharacteristic)
+        {
+            case Selections.HEAD:
+                headSelection = (headSelection + value) % NUM_OF_HEADS;
+                break;
+            case Selections.SKIN:
+                skinToneSelection = (skinToneSelection + value) % NUM_OF_SKIN_TONES;
+                break;
+            case Selections.FACE:
+                faceSelection = (faceSelection + value) % NUM_OF_FACES;
+                break;
+            case Selections.HAIR:
+                hairStyleSelection = (hairStyleSelection + value) % NUM_OF_HAIR_STYLES;
+                break;
+            case Selections.HAIR_COLOR:
+                hairColorSelection = (hairColorSelection + value) % NUM_OF_HAIR_COLORS;
+                break;
+            default:
+                break;
+        }
     }
 }
