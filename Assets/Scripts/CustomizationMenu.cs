@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using static System.Math;
 using UnityEngine;
 
 public class CustomizationMenu : MonoBehaviour
@@ -65,8 +66,8 @@ public class CustomizationMenu : MonoBehaviour
 
     // Updates head shape. Also, face & hair style change since they are each fitted to a specific head shape
     public void UpdateHead()
-    {
-        Destroy(head);
+    {   
+        if (head) Destroy(head);
         head = Instantiate(heads[headSelection], avatar.transform);
         UpdateFace();
         UpdateHair();
@@ -156,22 +157,27 @@ public class CustomizationMenu : MonoBehaviour
         switch(selectedCharacteristic)
         {
             case Selections.HEAD:
-                headSelection = (headSelection + value) % NUM_OF_HEADS;
+                headSelection = mod((headSelection + value), NUM_OF_HEADS);
                 break;
             case Selections.SKIN:
-                skinToneSelection = (skinToneSelection + value) % NUM_OF_SKIN_TONES;
+                skinToneSelection = mod((skinToneSelection + value), NUM_OF_SKIN_TONES);
                 break;
             case Selections.FACE:
-                faceSelection = (faceSelection + value) % NUM_OF_FACES;
+                faceSelection = mod((faceSelection + value), NUM_OF_FACES);
                 break;
             case Selections.HAIR:
-                hairStyleSelection = (hairStyleSelection + value) % NUM_OF_HAIR_STYLES;
+                hairStyleSelection = mod((hairStyleSelection + value), NUM_OF_HAIR_STYLES);
                 break;
             case Selections.HAIR_COLOR:
-                hairColorSelection = (hairColorSelection + value) % NUM_OF_HAIR_COLORS;
+                hairColorSelection = mod((hairColorSelection + value), NUM_OF_HAIR_COLORS);
                 break;
             default:
                 break;
         }
     }
+
+    int mod(int a, int b)
+    {
+        return (Abs(a * b) + a) % b;
+ }
 }

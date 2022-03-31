@@ -7,11 +7,23 @@ using Photon.Pun;
 
 public class NetworkPlayer : MonoBehaviour
 {
+    // Active Avatar Game Objects
+    public GameObject activeHead;
+    public GameObject activeFace;
+    public GameObject activeHairStyle;
+
+    // GameObjects and Materials for customization
+    public GameObject[] heads;
+    public Material[] skinTones;
+    public GameObject[] facesMale;
+    public GameObject[] facesFemale;
+    public GameObject[] hairStylesMale;
+    public GameObject[] hairStylesFemale;
+    public Material[] hairColors;
 
     public Transform head;
     public Transform leftHand;
     public Transform rightHand;
-    public Material[] materials;
 
     private PhotonView photonView;
     private Transform headRig;
@@ -30,7 +42,7 @@ public class NetworkPlayer : MonoBehaviour
 
         if (photonView.IsMine)
         {
-            ChangeColor(PlayerPrefs.GetInt("material", 0));
+            UpdateAvatar();
             foreach (var item in GetComponentsInChildren<Renderer>())
             {
                 item.enabled = false;
@@ -55,14 +67,43 @@ public class NetworkPlayer : MonoBehaviour
         target.rotation = rigTransform.rotation;
     }
 
-    [PunRPC]
-    public void ChangeColor(int color)
+    public void UpdateAvatar()
     {
-        foreach (var item in GetComponentsInChildren<Renderer>())
-        {
-            item.material = materials[color];
-        }
+        int headSelection = PlayerPrefs.GetInt(AvatarTypes.HEAD, 0);
+        int skinToneSelection = PlayerPrefs.GetInt(AvatarTypes.SKIN, 0);
+        int faceSelection = PlayerPrefs.GetInt(AvatarTypes.FACE, 0);
+        int hairStyleSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR, 0);
+        int hairColorSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR_COLOR, 0);
 
-        if (photonView.IsMine) photonView.RPC("ChangeColor", RpcTarget.OthersBuffered, color);
+        UpdateAvatarRPC(headSelection, skinToneSelection, faceSelection, hairStyleSelection, hairColorSelection);
+    }
+
+    [PunRPC]
+    public void UpdateAvatarRPC(int headSelection, int skinToneSelection, int faceSelection, int hairStyleSelection, int hairColorSelection)
+    {
+        Destroy(activeHead);
+        activeHead = Instantiate(heads[headSelection], head.transform);
+        activeHead.GetComponent<Renderer>().material = skinTones[skinToneSelection];
+        Destroy(activeFace);
+        if (headSelection == 0)
+        {
+            activeFace = Instantiate(facesMale[faceSelection * hairColors.Length + hairColorSelection], head.transform);
+        }
+        else
+        {
+            activeFace = Instantiate(facesFemale[faceSelection * hairColors.Length + hairColorSelection], head.transform);
+        }
+        Destroy(activeHairStyle);
+        if (headSelection == 0)
+        {
+            activeHairStyle = Instantiate(hairStylesMale[hairStyleSelection], head.transform);
+        }
+        else
+        {
+            activeHairStyle = Instantiate(hairStylesFemale[hairStyleSelection], head.transform);
+        }
+        activeHairStyle.GetComponent<Renderer>().material = hairColors[hairColorSelection];
+
+        if (photonView.IsMine) photonView.RPC("UpdateAvatarRPC", RpcTarget.OthersBuffered, headSelection, skinToneSelection, faceSelection, hairStyleSelection, hairColorSelection);
     }
 }
