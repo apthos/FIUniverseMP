@@ -82,25 +82,25 @@ public class NetworkPlayer : MonoBehaviour
     public void UpdateAvatarRPC(int headSelection, int skinToneSelection, int faceSelection, int hairStyleSelection, int hairColorSelection)
     {
         Destroy(activeHead);
-        activeHead = Instantiate(heads[headSelection], head.transform);
+        activeHead = Instantiate(heads[headSelection], new Vector3(0, -1.5f, 0), head.rotation, head.transform);
         activeHead.GetComponent<Renderer>().material = skinTones[skinToneSelection];
         Destroy(activeFace);
         if (headSelection == 0)
         {
-            activeFace = Instantiate(facesMale[faceSelection * hairColors.Length + hairColorSelection], head.transform);
+            activeFace = Instantiate(facesMale[faceSelection * hairColors.Length + hairColorSelection], new Vector3(0, -1.5f, 0), head.rotation, head.transform);
         }
         else
         {
-            activeFace = Instantiate(facesFemale[faceSelection * hairColors.Length + hairColorSelection], head.transform);
+            activeFace = Instantiate(facesFemale[faceSelection * hairColors.Length + hairColorSelection], new Vector3(0, -1.5f, 0), head.rotation, head.transform);
         }
         Destroy(activeHairStyle);
         if (headSelection == 0)
         {
-            activeHairStyle = Instantiate(hairStylesMale[hairStyleSelection], head.transform);
+            activeHairStyle = Instantiate(hairStylesMale[hairStyleSelection], new Vector3(0, -1.5f, 0), head.rotation, head.transform);
         }
         else
         {
-            activeHairStyle = Instantiate(hairStylesFemale[hairStyleSelection], head.transform);
+            activeHairStyle = Instantiate(hairStylesFemale[hairStyleSelection], new Vector3(0, -1.5f, 0), head.rotation, head.transform);
         }
         activeHairStyle.GetComponent<Renderer>().material = hairColors[hairColorSelection];
 
