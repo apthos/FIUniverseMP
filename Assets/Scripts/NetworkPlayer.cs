@@ -42,6 +42,7 @@ public class NetworkPlayer : MonoBehaviour
 
         if (photonView.IsMine)
         {
+            gameObject.tag = "User";
             UpdateAvatar();
             foreach (var item in GetComponentsInChildren<Renderer>())
             {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using static System.Math;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class CustomizationMenu : MonoBehaviour
@@ -29,6 +30,13 @@ public class CustomizationMenu : MonoBehaviour
     int hairStyleSelection;
     int hairColorSelection;
     Selections selectedCharacteristic;
+
+    // Buttons
+    public GameObject headButton;
+    public GameObject skinToneButton;
+    public GameObject faceButton;
+    public GameObject hairStyleButton;
+    public GameObject hairColorButton;
 
     // Private variables
     private const int NUM_OF_HAIR_COLORS = 5;
@@ -141,6 +149,8 @@ public class CustomizationMenu : MonoBehaviour
     public void SavePreferences()
     {
         PlayerPrefs.Save();
+        GameObject user = GameObject.FindGameObjectWithTag("User");
+        user.GetComponent<NetworkPlayer>().UpdateAvatar();
     }
 
 
@@ -149,7 +159,49 @@ public class CustomizationMenu : MonoBehaviour
     ************************************************************/
     public void ChangeSelectedCharacteristic(int characteristic)
     {
+        switch (selectedCharacteristic)
+        {
+            case Selections.HEAD:
+                headButton.GetComponent<Button>().image.color = Color.white;
+                break;
+            case Selections.SKIN:
+                skinToneButton.GetComponent<Button>().image.color = Color.white;
+                break;
+            case Selections.FACE:
+                faceButton.GetComponent<Button>().image.color = Color.white;
+                break;
+            case Selections.HAIR:
+                hairStyleButton.GetComponent<Button>().image.color = Color.white;
+                break;
+            case Selections.HAIR_COLOR:
+                hairColorButton.GetComponent<Button>().image.color = Color.white;
+                break;
+            default:
+                break;
+        }
+
         selectedCharacteristic = (Selections) characteristic;
+
+        switch (selectedCharacteristic)
+        {
+            case Selections.HEAD:
+                headButton.GetComponent<Button>().image.color = Color.gray;
+                break;
+            case Selections.SKIN:
+                skinToneButton.GetComponent<Button>().image.color = Color.gray;
+                break;
+            case Selections.FACE:
+                faceButton.GetComponent<Button>().image.color = Color.gray;
+                break;
+            case Selections.HAIR:
+                hairStyleButton.GetComponent<Button>().image.color = Color.gray;
+                break;
+            case Selections.HAIR_COLOR:
+                hairColorButton.GetComponent<Button>().image.color = Color.gray;
+                break;
+            default:
+                break;
+        }
     }
 
     public void ShiftSelection(int value)
