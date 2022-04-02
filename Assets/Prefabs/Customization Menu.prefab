@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -986,11 +986,11 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3be52db96e818c54caf5b5fd65da88c9, type: 2}
   - {fileID: 2100000, guid: 2dd9dd150c9823d4eb4cabd07c00a42a, type: 2}
   - {fileID: 2100000, guid: 794b7b37838e9ef4d864c9c250c219b3, type: 2}
-  headButton: {fileID: 0}
-  skinToneButton: {fileID: 0}
-  faceButton: {fileID: 0}
-  hairStyleButton: {fileID: 0}
-  hairColorButton: {fileID: 0}
+  headButton: {fileID: 1555868319079729536}
+  skinToneButton: {fileID: 1555868319224476789}
+  faceButton: {fileID: 1555868319550375197}
+  hairStyleButton: {fileID: 1555868319026473663}
+  hairColorButton: {fileID: 1555868318498296692}
 --- !u!1 &1555868318923462164
 GameObject:
   m_ObjectHideFlags: 0
