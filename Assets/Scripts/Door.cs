@@ -6,6 +6,8 @@ using Photon.Realtime;
 
 public class Door : MonoBehaviourPunCallbacks
 {
+    public string sceneName;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,13 +24,20 @@ public class Door : MonoBehaviourPunCallbacks
     {
         if (other.gameObject.tag == "Player")
         {
-            ConnectToServer();
-        }        
-    }
-
-    void ConnectToServer()
-    {
-        PhotonNetwork.ConnectUsingSettings();
+            if (PhotonNetwork.IsConnected)
+            {
+                PhotonNetwork.LeaveRoom();
+                EnterScene();
+            }
+            else
+            {
+                bool isConnected = PhotonNetwork.ConnectUsingSettings();
+                if (isConnected)
+                {
+                    EnterScene();
+                }
+            }
+        }
     }
 
     public override void OnConnectedToMaster()
@@ -37,17 +46,15 @@ public class Door : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
     }
 
-    public override void OnJoinedLobby()
+    public void EnterScene()
     {
-        base.OnJoinedLobby();
-
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 25;
         roomOptions.IsVisible = true;
         roomOptions.IsOpen = true;
 
-        PhotonNetwork.LoadLevel("SampleScene");
+        PhotonNetwork.LoadLevel(sceneName);
 
-        PhotonNetwork.JoinOrCreateRoom("FIU", roomOptions, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(sceneName, roomOptions, TypedLobby.Default);
     }
 }

@@ -51,6 +51,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dorm.unity
     guid: 59641df4c65a02c40b75f002bb162ac6
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 3f83d8280203949428c3b704d6bff922, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 3d5dd9b7916eb04438bc33c6d2abd19e, type: 2}
