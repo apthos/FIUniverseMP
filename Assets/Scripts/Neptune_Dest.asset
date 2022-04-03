@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce62df7957454b4085fa0827242b81a, type: 3}
+  m_Name: Neptune_Dest
+  m_EditorClassIdentifier: 
+  name: Neptune
+  description: sweet
+  transitionSkybox: {fileID: 0}
+  destinations:
+  - {fileID: 11400000, guid: 15fd428a2cfd5844e9df3024e39b7182, type: 2}
+  - {fileID: 11400000, guid: fa17e5e7b6796ce41822939fafe18071, type: 2}
+  InteractionPoints:
+  - {fileID: 506256556468536395, guid: 8ede47b99fbea9b4294cf932c259afa7, type: 3}
+  infoPoints:
+  - globalPos: {x: -1, y: 2, z: -5}
+    information: "Because of dwarf planet Pluto\u2019s elliptical orbit, it is sometimes
+      closer to the Sun than Neptune is."
+  - globalPos: {x: -7, y: 1.5, z: 2}
+    information: "Neptune is an ice giant. Most of its mass is a hot, dense fluid
+      of \"icy\" materials \u2013 water, methane and ammonia \u2013 above a small
+      rocky core."
+  - globalPos: {x: 0, y: 1.5, z: -2}
+    information: Has a distance of about 2.8 billion miles from the Sun!
+  transitionSkyboxTextures:
+  - {fileID: 2800000, guid: 0b12053352f8ff54b882e3c4ac562c71, type: 3}
+  - {fileID: 2800000, guid: 068c76c6e61a66946aa267bc14671114, type: 3}
+  - {fileID: 2800000, guid: 48211eec21fc5834fbfe8b8020880a04, type: 3}
+  - {fileID: 2800000, guid: 53228af3de13b9840bdda175cf6cc634, type: 3}
+  - {fileID: 2800000, guid: 5ff004ce4abb286449fab0c100f67371, type: 3}
+  - {fileID: 2800000, guid: b19f54d22ad19b047b7bb4c0fb54093c, type: 3}

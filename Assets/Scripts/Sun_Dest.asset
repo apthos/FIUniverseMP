@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce62df7957454b4085fa0827242b81a, type: 3}
+  m_Name: Sun_Dest
+  m_EditorClassIdentifier: 
+  name: Sun
+  description: big star
+  transitionSkybox: {fileID: 0}
+  destinations:
+  - {fileID: 11400000, guid: c2352f2d51005fd418e7a24c8a72b241, type: 2}
+  - {fileID: 11400000, guid: 15fd428a2cfd5844e9df3024e39b7182, type: 2}
+  InteractionPoints:
+  - {fileID: 7136241558609983042, guid: f36b506719ba72045bc0ebe0e90ed898, type: 3}
+  infoPoints:
+  - globalPos: {x: -7, y: 2, z: -2}
+    information: 'The surface of the sun is about 10,000 F degrees, while the core
+      is over 27mil F! '
+  - globalPos: {x: 0, y: 1.5, z: 2}
+    information: "The sun is heating up! Within a billion years, the heat will be
+      so intense that liquid water won\u2019t exist on Earth!"
+  - globalPos: {x: -3, y: 1.5, z: 2}
+    information: The sun was born about 4.6 billion years ago. It will become a "red
+      giant" and finally get smaller as a "white dwarf".
+  transitionSkyboxTextures:
+  - {fileID: 2800000, guid: b8a7c068ac2a22044aa58a209ec4e1ee, type: 3}
+  - {fileID: 2800000, guid: f35b7ba8c47d415418827d3e09138997, type: 3}
+  - {fileID: 2800000, guid: e0f1ae8f95f096640bd69fbbfb06e6d7, type: 3}
+  - {fileID: 2800000, guid: 83ea2f4cbe0af51468067a6b06a8b6f7, type: 3}
+  - {fileID: 2800000, guid: bd25998505741af4c8e660e384d37c4a, type: 3}
+  - {fileID: 2800000, guid: e85879f228f8b744ea357b8333487cab, type: 3}

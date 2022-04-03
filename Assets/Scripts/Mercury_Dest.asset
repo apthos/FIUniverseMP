@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce62df7957454b4085fa0827242b81a, type: 3}
+  m_Name: Mercury_Dest
+  m_EditorClassIdentifier: 
+  name: Mercury
+  description: idk
+  transitionSkybox: {fileID: 0}
+  destinations:
+  - {fileID: 11400000, guid: c2352f2d51005fd418e7a24c8a72b241, type: 2}
+  - {fileID: 11400000, guid: 3e516a3394d829441928b000442350b5, type: 2}
+  InteractionPoints:
+  - {fileID: 7961559734881449540, guid: 5c078d706780ee0479e1e2d09a3bfe80, type: 3}
+  infoPoints:
+  - globalPos: {x: -1, y: 1, z: 2}
+    information: "The planet\u2019s closeness to the Sun makes Mercury\u2019s orbit
+      shorter than those of any other planet in the Solar System. One year in Mercury
+      is only about 88 Earth days!"
+  - globalPos: {x: -5, y: 2, z: 0}
+    information: "Because Mercury\u2019s atmosphere is so weak, the planet has nothing
+      to protect it against meteor impacts. This has filled its surface of crater
+      impacts and has given Mercury a very similar look to our Moon."
+  transitionSkyboxTextures:
+  - {fileID: 2800000, guid: b8a7c068ac2a22044aa58a209ec4e1ee, type: 3}
+  - {fileID: 2800000, guid: f35b7ba8c47d415418827d3e09138997, type: 3}
+  - {fileID: 2800000, guid: e0f1ae8f95f096640bd69fbbfb06e6d7, type: 3}
+  - {fileID: 2800000, guid: 83ea2f4cbe0af51468067a6b06a8b6f7, type: 3}
+  - {fileID: 2800000, guid: bd25998505741af4c8e660e384d37c4a, type: 3}
+  - {fileID: 2800000, guid: e85879f228f8b744ea357b8333487cab, type: 3}

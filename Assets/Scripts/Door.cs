@@ -31,11 +31,7 @@ public class Door : MonoBehaviourPunCallbacks
             }
             else
             {
-                bool isConnected = PhotonNetwork.ConnectUsingSettings();
-                if (isConnected)
-                {
-                    EnterScene();
-                }
+                PhotonNetwork.ConnectUsingSettings();
             }
         }
     }
@@ -46,15 +42,25 @@ public class Door : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
     }
 
+    public override void OnJoinedLobby()
+    {
+        base.OnJoinedLobby();
+        EnterScene();
+    }
+
     public void EnterScene()
     {
         RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 25;
+        roomOptions.MaxPlayers = 10;
         roomOptions.IsVisible = true;
         roomOptions.IsOpen = true;
 
-        PhotonNetwork.LoadLevel(sceneName);
-
         PhotonNetwork.JoinOrCreateRoom(sceneName, roomOptions, TypedLobby.Default);
+    }
+
+    public override void OnJoinedRoom()
+    {
+        base.OnJoinedRoom();
+        PhotonNetwork.LoadLevel(sceneName);
     }
 }

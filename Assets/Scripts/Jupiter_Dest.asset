@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce62df7957454b4085fa0827242b81a, type: 3}
+  m_Name: Jupiter_Dest
+  m_EditorClassIdentifier: 
+  name: Jupiter
+  description: Where we get stupider
+  transitionSkybox: {fileID: 0}
+  destinations:
+  - {fileID: 11400000, guid: 4b17ba7811e46524286c49636856daa8, type: 2}
+  - {fileID: 11400000, guid: 6f7dae62348499840b752986245d4d11, type: 2}
+  InteractionPoints:
+  - {fileID: 5793203552676978382, guid: b5a7b0a52c7fc6d48a87f212d363b607, type: 3}
+  infoPoints:
+  - globalPos: {x: 0, y: 2, z: 3}
+    information: "It only takes about 10 hrs to complete a full rotation on its axis.
+      Because it\u2019s spinning so rapidly, the planet has flattened out at the
+      poles a little and is bulging at its equator."
+  - globalPos: {x: -4, y: 1, z: -2}
+    information: "The Great Red Spot is a persistent anticyclonic storm. It is large
+      enough to contain two or three planets the size of Earth\u2019s diameter."
+  - globalPos: {x: -1, y: 1.5, z: -1}
+    information: ' Largest planet in the Solar System 2.5 times more massive than
+      all of the other planets in the Solar System combined!'
+  transitionSkyboxTextures:
+  - {fileID: 2800000, guid: a5e005e6ff4298340b2ff009a5991908, type: 3}
+  - {fileID: 2800000, guid: b692a498a0379a341872703d288b04af, type: 3}
+  - {fileID: 2800000, guid: 80f1020b68f9b794994187bf41ba9d21, type: 3}
+  - {fileID: 2800000, guid: 411c36f0804e8c248a3f6470ca50cd85, type: 3}
+  - {fileID: 2800000, guid: 8313f24c5bda59240aabef5e6c46f9a5, type: 3}
+  - {fileID: 2800000, guid: a3b2b45ab4da8b343ad09a56207d3910, type: 3}
