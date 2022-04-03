@@ -10,12 +10,6 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    public override void OnJoinedRoom()
-    {
-        base.OnJoinedRoom();
         spawnedPlayerPrefab = PhotonNetwork.Instantiate("Network Player", transform.position, transform.rotation);
     }
 
