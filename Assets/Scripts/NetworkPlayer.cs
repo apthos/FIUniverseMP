@@ -82,10 +82,10 @@ public class NetworkPlayer : MonoBehaviour
     [PunRPC]
     public void UpdateAvatarRPC(int headSelection, int skinToneSelection, int faceSelection, int hairStyleSelection, int hairColorSelection)
     {
-        Destroy(activeHead);
+        if (activeHead) Destroy(activeHead);
         activeHead = Instantiate(heads[headSelection], new Vector3(0, -1.5f, 0), head.rotation, head.transform);
         activeHead.GetComponent<Renderer>().material = skinTones[skinToneSelection];
-        Destroy(activeFace);
+        if (activeFace) Destroy(activeFace);
         if (headSelection == 0)
         {
             activeFace = Instantiate(facesMale[faceSelection * hairColors.Length + hairColorSelection], new Vector3(0, -1.5f, 0), head.rotation, head.transform);
@@ -94,7 +94,7 @@ public class NetworkPlayer : MonoBehaviour
         {
             activeFace = Instantiate(facesFemale[faceSelection * hairColors.Length + hairColorSelection], new Vector3(0, -1.5f, 0), head.rotation, head.transform);
         }
-        Destroy(activeHairStyle);
+        if (activeHairStyle) Destroy(activeHairStyle);
         if (headSelection == 0)
         {
             activeHairStyle = Instantiate(hairStylesMale[hairStyleSelection], new Vector3(0, -1.5f, 0), head.rotation, head.transform);

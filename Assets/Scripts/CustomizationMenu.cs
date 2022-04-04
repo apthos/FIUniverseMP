@@ -145,10 +145,19 @@ public class CustomizationMenu : MonoBehaviour
         hairColorSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR_COLOR, 0);
     }
 
-    // Method in case customization will be saved onto a database per account
     public void SavePreferences()
     {
-        PlayerPrefs.Save();
+        PlayerPrefs.SetInt(AvatarTypes.HEAD, headSelection);
+        PlayerPrefs.SetInt(AvatarTypes.SKIN, skinToneSelection);
+        PlayerPrefs.SetInt(AvatarTypes.FACE, faceSelection);
+        PlayerPrefs.SetInt(AvatarTypes.HAIR, hairStyleSelection);
+        PlayerPrefs.SetInt(AvatarTypes.HAIR_COLOR, hairColorSelection);
+    }
+
+    // Method in case customization will be saved onto a database per account
+    public void SavePreferencesNetwork()
+    {
+        SavePreferences();
         GameObject user = GameObject.FindGameObjectWithTag("User");
         user.GetComponent<NetworkPlayer>().UpdateAvatar();
     }
