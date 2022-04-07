@@ -2268,26 +2268,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: VR Player
       objectReference: {fileID: 0}
-    - target: {fileID: 9163399436817718780, guid: 6c4497a2cdf62ad47a6cd98b37a438ca, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.85730726
-      objectReference: {fileID: 0}
-    - target: {fileID: 9163399436817718780, guid: 6c4497a2cdf62ad47a6cd98b37a438ca, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.5148051
-      objectReference: {fileID: 0}
-    - target: {fileID: 9163399436817718780, guid: 6c4497a2cdf62ad47a6cd98b37a438ca, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 61.969
-      objectReference: {fileID: 0}
-    - target: {fileID: 9163399436970967611, guid: 6c4497a2cdf62ad47a6cd98b37a438ca, type: 3}
-      propertyPath: m_TargetEye
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9163399436970967613, guid: 6c4497a2cdf62ad47a6cd98b37a438ca, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c4497a2cdf62ad47a6cd98b37a438ca, type: 3}
 --- !u!1001 &1963431008
