@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using Unity.XR.CoreUtils;
 using Photon.Pun;
+using TMPro;
 
 public class NetworkPlayer : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class NetworkPlayer : MonoBehaviour
     public Transform head;
     public Transform leftHand;
     public Transform rightHand;
+    public Transform userName;
 
     private PhotonView photonView;
     private Transform headRig;
@@ -39,6 +41,9 @@ public class NetworkPlayer : MonoBehaviour
         headRig = rig.transform.Find("Camera Offset/Main Camera");
         leftHandRig = rig.transform.Find("Camera Offset/LeftHand Controller");
         rightHandRig = rig.transform.Find("Camera Offset/RightHand Controller");
+        
+
+
 
         if (photonView.IsMine)
         {
@@ -76,12 +81,16 @@ public class NetworkPlayer : MonoBehaviour
         int hairStyleSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR, 0);
         int hairColorSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR_COLOR, 0);
 
-        UpdateAvatarRPC(headSelection, skinToneSelection, faceSelection, hairStyleSelection, hairColorSelection);
+        string playerName = "WHATEVER YOU WANT";
+
+        UpdateAvatarRPC(headSelection, skinToneSelection, faceSelection, hairStyleSelection, hairColorSelection, playerName);
     }
 
     [PunRPC]
-    public void UpdateAvatarRPC(int headSelection, int skinToneSelection, int faceSelection, int hairStyleSelection, int hairColorSelection)
+    public void UpdateAvatarRPC(int headSelection, int skinToneSelection, int faceSelection, int hairStyleSelection, int hairColorSelection, string playerName)
     {
+        userName.GetComponent<TextMeshPro>().text = playerName;
+
         if (activeHead) Destroy(activeHead);
         activeHead = Instantiate(heads[headSelection], new Vector3(0, -1.5f, 0), head.rotation, head.transform);
         activeHead.GetComponent<Renderer>().material = skinTones[skinToneSelection];
