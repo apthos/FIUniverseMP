@@ -8,11 +8,11 @@ public class XREnable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (IsXREnabled())
+        if (!IsXREnabled())
         {
             GameObject mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-            mainCamera.GetComponent<Camera>().stereoTargetEye = StereoTargetEyeMask.Both;
-            mainCamera.GetComponent<UnityEngine.InputSystem.XR.TrackedPoseDriver>().enabled = true;
+            mainCamera.GetComponent<Camera>().stereoTargetEye = StereoTargetEyeMask.None;
+            mainCamera.GetComponent<UnityEngine.InputSystem.XR.TrackedPoseDriver>().enabled = false;
         }
     }
 

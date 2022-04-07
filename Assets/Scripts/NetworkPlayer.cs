@@ -51,7 +51,7 @@ public class NetworkPlayer : MonoBehaviour
             UpdateAvatar();
             foreach (var item in GetComponentsInChildren<Renderer>())
             {
-                item.enabled = false;
+                // item.enabled = false;
             }
         }
     }
@@ -64,6 +64,8 @@ public class NetworkPlayer : MonoBehaviour
             MapPosition(head, headRig);
             MapPosition(leftHand, leftHandRig);
             MapPosition(rightHand, rightHandRig);
+            userName.transform.position = new Vector3(head.position.x, head.position.y + 0.5f, head.position.z);
+            userName.rotation = Quaternion.Euler(0, head.eulerAngles.y + 180, 0);
         }
     }
 
@@ -81,7 +83,7 @@ public class NetworkPlayer : MonoBehaviour
         int hairStyleSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR, 0);
         int hairColorSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR_COLOR, 0);
 
-        string playerName = "WHATEVER YOU WANT";
+        string playerName = "FIUNIVERSE";
 
         UpdateAvatarRPC(headSelection, skinToneSelection, faceSelection, hairStyleSelection, hairColorSelection, playerName);
     }
@@ -114,6 +116,6 @@ public class NetworkPlayer : MonoBehaviour
         }
         activeHairStyle.GetComponent<Renderer>().material = hairColors[hairColorSelection];
 
-        if (photonView.IsMine) photonView.RPC("UpdateAvatarRPC", RpcTarget.OthersBuffered, headSelection, skinToneSelection, faceSelection, hairStyleSelection, hairColorSelection);
+        if (photonView.IsMine) photonView.RPC("UpdateAvatarRPC", RpcTarget.OthersBuffered, headSelection, skinToneSelection, faceSelection, hairStyleSelection, hairColorSelection, playerName);
     }
 }
