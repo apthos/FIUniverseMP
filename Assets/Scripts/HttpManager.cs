@@ -10,7 +10,8 @@ namespace _Scripts
 {
     public class HttpManager : MonoBehaviour
     {
-        public GameObject textInput;
+        public GameObject TwoDtextInput;
+        public GameObject VRTextInput;
         public string username;
         public int[] inventory = new int[8];
         
@@ -40,9 +41,16 @@ namespace _Scripts
         public void LoginAction()
         {
             Debug.Log("button clicked");
-            string text = textInput.GetComponent<TMP_InputField>().text;
+            string text = TwoDtextInput.GetComponent<TMP_InputField>().text;
 
             LoginButton(text);
+            Debug.Log(text);
+        }
+
+        public void VRLoginAction()
+        {
+            string text = VRTextInput.GetComponent<TMP_InputField>().text;
+            //LoginButton(text);
             Debug.Log(text);
         }
     }

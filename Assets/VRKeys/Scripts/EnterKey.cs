@@ -10,6 +10,7 @@
 
 using UnityEngine;
 using System.Collections;
+using _Scripts;
 
 namespace VRKeys {
 
@@ -17,9 +18,17 @@ namespace VRKeys {
 	/// Enter key that calls Submit() on the keyboard.
 	/// </summary>
 	public class EnterKey : Key {
+		public GameObject data;
+
+
+		void Start()
+        {
+			data = GameObject.Find("Data");
+        }
 
 		public override void HandleTriggerEnter (Collider other) {
-			keyboard.Submit ();
+			//keyboard.Submit ();
+			data.GetComponent<HttpManager>().VRLoginAction();
 		}
 
 		public override void UpdateLayout (Layout translation) {

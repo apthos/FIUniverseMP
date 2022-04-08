@@ -6,37 +6,54 @@ using Photon.Realtime;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
 {
+    private string sceneName;
+
     // Start is called before the first frame update
     void Start()
     {
-        ConnectToServer();
+
     }
 
-    void ConnectToServer()
+    public void ConnectToScene(string name)
     {
-        PhotonNetwork.ConnectUsingSettings();
+        sceneName = name;
+
+        if (PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.LeaveRoom();
+            EnterScene();
+        }
+        else
+        {
+            PhotonNetwork.ConnectUsingSettings();
+        }
     }
 
     public override void OnConnectedToMaster()
     {
         base.OnConnectedToMaster();
+        PhotonNetwork.JoinLobby();
+    }
 
+    public override void OnJoinedLobby()
+    {
+        base.OnJoinedLobby();
+        EnterScene();
+    }
+
+    public void EnterScene()
+    {
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 10;
         roomOptions.IsVisible = true;
         roomOptions.IsOpen = true;
 
-        PhotonNetwork.JoinOrCreateRoom("Lobby", roomOptions, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(sceneName, roomOptions, TypedLobby.Default);
     }
 
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
-    }
-
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        Debug.Log("A new player joined!");
-        base.OnPlayerEnteredRoom(newPlayer);
+        PhotonNetwork.LoadLevel(sceneName);
     }
 }

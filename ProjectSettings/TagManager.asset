@@ -6,18 +6,26 @@ TagManager:
   tags:
   - Enemy
   - User
+  - pin
+  - ball
+  - pins
+  - lane
+  - cueTip
+  - cueBall
+  - balls
+  - billiardBall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - VRPlayer
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - bowlingBall
+  - Cue
+  - cueTip
+  - billiardTable
+  - billiardBall
   - 
   - 
   - 

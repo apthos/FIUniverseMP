@@ -24,43 +24,7 @@ public class Door : MonoBehaviourPunCallbacks
     {
         if (other.gameObject.tag == "Player")
         {
-            if (PhotonNetwork.IsConnected)
-            {
-                PhotonNetwork.LeaveRoom();
-                EnterScene();
-            }
-            else
-            {
-                PhotonNetwork.ConnectUsingSettings();
-            }
+            GameObject.Find("Network Manager").GetComponent<NetworkManager>().ConnectToScene(sceneName);
         }
-    }
-
-    public override void OnConnectedToMaster()
-    {
-        base.OnConnectedToMaster();
-        PhotonNetwork.JoinLobby();
-    }
-
-    public override void OnJoinedLobby()
-    {
-        base.OnJoinedLobby();
-        EnterScene();
-    }
-
-    public void EnterScene()
-    {
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 10;
-        roomOptions.IsVisible = true;
-        roomOptions.IsOpen = true;
-
-        PhotonNetwork.JoinOrCreateRoom(sceneName, roomOptions, TypedLobby.Default);
-    }
-
-    public override void OnJoinedRoom()
-    {
-        base.OnJoinedRoom();
-        PhotonNetwork.LoadLevel(sceneName);
     }
 }

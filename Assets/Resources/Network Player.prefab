@@ -74,6 +74,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c674e961feea1854a90175138f207c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 0}
+  username: 
   activeHead: {fileID: 0}
   activeFace: {fileID: 0}
   activeHairStyle: {fileID: 0}

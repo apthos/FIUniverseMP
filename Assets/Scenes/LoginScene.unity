@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7624382386206349457, guid: 79f8998137e77524b9e7e0f253bdfc34, type: 3}
   m_PrefabInstance: {fileID: 7624382386359764199}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 7624382386359764200}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 650c212cdce24c77a74174f29b1d27cf, type: 3}
@@ -1708,6 +1708,10 @@ PrefabInstance:
       propertyPath: positionRelativeToUser.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012720594730, guid: f28287b1c722ebd4aa4f4d8547ed7fa8, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 7624382386359764200}
     - target: {fileID: 223000011891530624, guid: f28287b1c722ebd4aa4f4d8547ed7fa8, type: 3}
       propertyPath: m_Camera
       value: 
@@ -1725,6 +1729,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb08f495a9bc93a46b97e507bf9be1b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &284846159 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000011907245898, guid: f28287b1c722ebd4aa4f4d8547ed7fa8, type: 3}
+  m_PrefabInstance: {fileID: 284846157}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &303552703
 GameObject:
   m_ObjectHideFlags: 0
@@ -5172,7 +5181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1839069177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5953,7 +5962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2111093468
 Transform:
   m_ObjectHideFlags: 0
@@ -6057,9 +6066,22 @@ PrefabInstance:
       propertyPath: textInput
       value: 
       objectReference: {fileID: 621291884}
+    - target: {fileID: 7624382386206349457, guid: 79f8998137e77524b9e7e0f253bdfc34, type: 3}
+      propertyPath: VRTextInput
+      value: 
+      objectReference: {fileID: 284846159}
+    - target: {fileID: 7624382386206349457, guid: 79f8998137e77524b9e7e0f253bdfc34, type: 3}
+      propertyPath: TwoDtextInput
+      value: 
+      objectReference: {fileID: 621291884}
     - target: {fileID: 7624382386206349458, guid: 79f8998137e77524b9e7e0f253bdfc34, type: 3}
       propertyPath: m_Name
       value: Data
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79f8998137e77524b9e7e0f253bdfc34, type: 3}
+--- !u!1 &7624382386359764200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7624382386206349458, guid: 79f8998137e77524b9e7e0f253bdfc34, type: 3}
+  m_PrefabInstance: {fileID: 7624382386359764199}
+  m_PrefabAsset: {fileID: 0}
