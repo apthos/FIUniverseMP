@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts;
 using UnityEngine;
 using UnityEngine.XR;
 using Unity.XR.CoreUtils;
@@ -8,6 +9,9 @@ using TMPro;
 
 public class NetworkPlayer : MonoBehaviour
 {
+    public GameObject data;
+    public string username;
+    
     // Active Avatar Game Objects
     public GameObject activeHead;
     public GameObject activeFace;
@@ -48,6 +52,9 @@ public class NetworkPlayer : MonoBehaviour
         if (photonView.IsMine)
         {
             gameObject.tag = "User";
+            data = GameObject.Find("Data");
+            username = data.GetComponent<HttpManager>().username;
+
             UpdateAvatar();
             foreach (var item in GetComponentsInChildren<Renderer>())
             {
@@ -83,7 +90,7 @@ public class NetworkPlayer : MonoBehaviour
         int hairStyleSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR, 0);
         int hairColorSelection = PlayerPrefs.GetInt(AvatarTypes.HAIR_COLOR, 0);
 
-        string playerName = "FIUNIVERSE";
+        string playerName = username;
 
         UpdateAvatarRPC(headSelection, skinToneSelection, faceSelection, hairStyleSelection, hairColorSelection, playerName);
     }

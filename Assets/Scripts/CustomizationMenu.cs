@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts;
+using SharedLibrary;
 using static System.Math;
 using UnityEngine.UI;
 using UnityEngine;
 
 public class CustomizationMenu : MonoBehaviour
 {
+    public GameObject data;
+    public string username;
+    
     // GameObject to be customized for the menu
     public GameObject avatar;
 
@@ -59,6 +64,8 @@ public class CustomizationMenu : MonoBehaviour
     {
         LoadPreferences();
         UpdateAvatar();
+        data = GameObject.Find("Data");
+        username = data.GetComponent<HttpManager>().username;
     }
 
     // Update is called once per frame
@@ -158,8 +165,9 @@ public class CustomizationMenu : MonoBehaviour
     public void SavePreferencesNetwork()
     {
         SavePreferences();
-        GameObject user = GameObject.FindGameObjectWithTag("User");
-        user.GetComponent<NetworkPlayer>().UpdateAvatar();
+        Debug.Log(faceSelection);
+        HttpClient.UpdatePreferences<User>(username, headSelection, skinToneSelection, faceSelection, hairStyleSelection, hairColorSelection);
+        Debug.Log("In saver preferences");
     }
 
 

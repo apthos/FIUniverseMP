@@ -3,7 +3,17 @@ guid: 4621716b6cbc31444b38194173431106
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - data: {fileID: 7624382386206349458, guid: 79f8998137e77524b9e7e0f253bdfc34, type: 3}
+  - avatar: {instanceID: 0}
+  - head: {instanceID: 0}
+  - face: {instanceID: 0}
+  - hairStyle: {instanceID: 0}
+  - headButton: {instanceID: 0}
+  - skinToneButton: {instanceID: 0}
+  - faceButton: {instanceID: 0}
+  - hairStyleButton: {instanceID: 0}
+  - hairColorButton: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

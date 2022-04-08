@@ -3,7 +3,15 @@ guid: c674e961feea1854a90175138f207c5f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - data: {fileID: 7624382386206349458, guid: 79f8998137e77524b9e7e0f253bdfc34, type: 3}
+  - activeHead: {instanceID: 0}
+  - activeFace: {instanceID: 0}
+  - activeHairStyle: {instanceID: 0}
+  - head: {instanceID: 0}
+  - leftHand: {instanceID: 0}
+  - rightHand: {instanceID: 0}
+  - userName: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

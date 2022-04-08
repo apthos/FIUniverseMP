@@ -2311,7 +2311,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1555868318803949908}
         m_TargetAssemblyTypeName: CustomizationMenu, Assembly-CSharp
-        m_MethodName: SavePreferences
+        m_MethodName: SavePreferencesNetwork
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
