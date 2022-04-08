@@ -58,4 +58,23 @@ public class HandPresence : MonoBehaviour
             UpdateHandAnimation();
         }
     }
+
+    public bool RightThumbStickOnClickBool()
+    {
+        targetDevice.TryGetFeatureValue(CommonUsages.primary2DAxisClick, out bool primaryClick);
+        return primaryClick;
+    }
+
+    public Vector2 RightThumbStickAxisValue()
+    {
+        //Gives value of analog stick location
+        targetDevice.TryGetFeatureValue(CommonUsages.primary2DAxis, out Vector2 primary2DAxisValue);
+        return primary2DAxisValue;
+    }
+
+    public bool RightThumbStickOnTouchBool()
+    {
+        targetDevice.TryGetFeatureValue(CommonUsages.primary2DAxisTouch, out bool primaryTouch);
+        return primaryTouch;
+    }
 }
