@@ -10,7 +10,7 @@ using TMPro;
 public class NetworkPlayer : MonoBehaviour
 {
     public GameObject data;
-    public string username;
+    public string username = "David";
     
     // Active Avatar Game Objects
     public GameObject activeHead;
@@ -52,13 +52,13 @@ public class NetworkPlayer : MonoBehaviour
         if (photonView.IsMine)
         {
             gameObject.tag = "User";
-            data = GameObject.Find("Data");
-            username = data.GetComponent<HttpManager>().username;
+            //data = GameObject.Find("Data");
+            //username = data.GetComponent<HttpManager>().username;
 
             UpdateAvatar();
             foreach (var item in GetComponentsInChildren<Renderer>())
             {
-                // item.enabled = false;
+                item.enabled = false;
             }
         }
     }

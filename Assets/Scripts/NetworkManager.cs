@@ -8,6 +8,18 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 {
     private string sceneName;
 
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        Door.ChangeScene += ConnectToScene;
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        Door.ChangeScene -= ConnectToScene;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

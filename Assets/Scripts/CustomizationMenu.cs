@@ -64,8 +64,8 @@ public class CustomizationMenu : MonoBehaviour
     {
         LoadPreferences();
         UpdateAvatar();
-        data = GameObject.Find("Data");
-        username = data.GetComponent<HttpManager>().username;
+        //data = GameObject.Find("Data");
+        //username = data.GetComponent<HttpManager>().username;
     }
 
     // Update is called once per frame
@@ -166,7 +166,7 @@ public class CustomizationMenu : MonoBehaviour
     {
         SavePreferences();
         Debug.Log(faceSelection);
-        HttpClient.UpdatePreferences<User>(username, headSelection, skinToneSelection, faceSelection, hairStyleSelection, hairColorSelection);
+        //HttpClient.UpdatePreferences<User>(username, headSelection, skinToneSelection, faceSelection, hairStyleSelection, hairColorSelection);
         Debug.Log("In saver preferences");
     }
 

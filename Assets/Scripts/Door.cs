@@ -8,6 +8,10 @@ public class Door : MonoBehaviourPunCallbacks
 {
     public string sceneName;
 
+    public delegate void SceneChangeDelegate(string sceneName);
+    public static event SceneChangeDelegate ChangeScene;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +28,7 @@ public class Door : MonoBehaviourPunCallbacks
     {
         if (other.gameObject.tag == "Player")
         {
-            GameObject.Find("Network Manager").GetComponent<NetworkManager>().ConnectToScene(sceneName);
+            ChangeScene(sceneName);
         }
     }
 }
