@@ -45253,6 +45253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: VR Player
       objectReference: {fileID: 0}
+    - target: {fileID: 9163399436865700296, guid: 6c4497a2cdf62ad47a6cd98b37a438ca, type: 3}
+      propertyPath: m_MoveSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 9163399436970967611, guid: 6c4497a2cdf62ad47a6cd98b37a438ca, type: 3}
       propertyPath: far clip plane
       value: 20000
